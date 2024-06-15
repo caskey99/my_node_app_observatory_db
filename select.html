@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ObservatoryDB</title>
+    <script>
+        function editRecord(id, coordinates, light_intensity, foreign_objects, num_objects, num_undefined_objects, num_defined_objects, note) {
+            document.getElementById('id').value = id;
+            document.getElementById('coordinates').value = coordinates;
+            document.getElementById('light_intensity').value = light_intensity;
+            document.getElementById('foreign_objects').value = foreign_objects;
+            document.getElementById('num_objects').value = num_objects;
+            document.getElementById('num_undefined_objects').value = num_undefined_objects;
+            document.getElementById('num_defined_objects').value = num_defined_objects;
+            document.getElementById('note').value = note;
+            document.getElementById('action').value = 'edit';
+        }
+
+        function deleteRecord(id) {
+            document.getElementById('id').value = id;
+            document.getElementById('action').value = 'delete';
+            document.forms[0].submit();
+        }
+    </script>
+</head>
+<body>
+    <h1>ObservatoryDB</h1>
+    <form method="post">
+        <input type="hidden" id="id" name="id">
+        <input type="hidden" id="action" name="action">
+        <label>Coordinates: <input type="text" id="coordinates" name="coordinates"></label><br>
+        <label>Light Intensity: <input type="text" id="light_intensity" name="light_intensity"></label><br>
+        <label>Foreign Objects: <input type="text" id="foreign_objects" name="foreign_objects"></label><br>
+        <label>Number of Objects: <input type="text" id="num_objects" name="num_objects"></label><br>
+        <label>Number of Undefined Objects: <input type="text" id="num_undefined_objects" name="num_undefined_objects"></label><br>
+        <label>Number of Defined Objects: <input type="text" id="num_defined_objects" name="num_defined_objects"></label><br>
+        <label>Note: <textarea id="note" name="note"></textarea></label><br>
+        <button type="submit" onclick="document.getElementById('action').value = 'add'">Добавить</button>
+        <button type="submit" onclick="document.getElementById('action').value = 'edit'">Обновить</button>
+    </form>
+    <table border="1">
+        @tr
+    </table>
+</body>
+</html>
